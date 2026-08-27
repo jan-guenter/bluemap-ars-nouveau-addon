@@ -1,0 +1,6 @@
+{
+  "id": "bluemap-ars-nouveau",
+  "entrypoint": "io.github.janguenter.bluemap.arsnouveau.BlueMapArsNouveauAddon",
+  "dependencies": [],
+  "soft-dependencies": []
+}
