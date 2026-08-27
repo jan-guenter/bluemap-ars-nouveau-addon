@@ -17,12 +17,15 @@ import io.github.janguenter.bluemap.arsnouveau.adapter.bluemap522.RendererDataRe
 
 import java.util.IdentityHashMap;
 import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 
 /** Restores eleven narrow Ars Nouveau block-entity renderer omissions. */
 final class ArsNouveauRenderer implements BlockRenderer {
 
     private static final ThreadLocal<Boolean> STOCK_FALLBACK =
             ThreadLocal.withInitial(() -> Boolean.FALSE);
+    private static final Set<String> DIAGNOSTICS = ConcurrentHashMap.newKeySet();
 
     private final ResourcePack resourcePack;
     private final TextureGallery textures;
@@ -88,12 +91,26 @@ final class ArsNouveauRenderer implements BlockRenderer {
             case TURRET, ROTATING_TURRET -> StateRoutes.turret(properties);
         };
         if (facing == null) {
+            diagnose(blockId, properties, "rejected");
             return false;
         }
-        return geo.emit(
+        boolean emitted = geo.emit(
                 spec.model(), spec.texture(), spec.route(), facing,
                 block, target, mapColor
         );
+        diagnose(blockId, properties, emitted ? "emitted" : "emitter-fallback");
+        return emitted;
+    }
+
+    private static void diagnose(
+            String blockId,
+            Map<String, String> properties,
+            String outcome
+    ) {
+        if (DIAGNOSTICS.add(blockId)) {
+            System.out.println("BlueMap Ars Nouveau staging diagnostic: "
+                    + blockId + properties + " -> " + outcome);
+        }
     }
 
     private void stock(
