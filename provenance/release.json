@@ -1,10 +1,75 @@
 {
-  "accepted_staging_entries": null,
-  "final_release_artifacts": null,
-  "note": "Populate only after owner visual acceptance; this file is not packaged.",
-  "owner_accepted_staging": null,
-  "repository": "https://github.com/jan-guenter/bluemap-ars-nouveau-addon",
   "schema_version": 1,
-  "status": "prototype-not-owner-accepted",
-  "version": "0.1.0-SNAPSHOT"
+  "status": "owner-accepted-release-candidate",
+  "version": "0.1.0-alpha.1",
+  "release_date": "2026-08-27",
+  "repository": "https://github.com/jan-guenter/bluemap-ars-nouveau-addon",
+  "tag": "v0.1.0-alpha.1",
+  "maven_coordinate": "io.github.jan-guenter:bluemap-ars-nouveau-addon:0.1.0-alpha.1",
+  "owner_accepted_staging": {
+    "accepted_at": "2026-08-27",
+    "commit": "eec862be3212abed051992212d7978578b6ee950",
+    "tree": "ad70c84f4f3e9f3f96fff0f3abe4f7d995210ee2",
+    "production_jar_size": 153310,
+    "production_jar_sha256": "9ce32475eb4eda7ce51ebea75e5453c3a1d597a2205895f04b9ac61ec7bd51e8",
+    "accepted_at_map": "ars_nouveau_review",
+    "visual_acceptance": true
+  },
+  "accepted_staging_entries": {
+    "path": "provenance/accepted-staging-entries.sha256",
+    "entry_count": 44,
+    "sha256": "1daea276222ed11129e6779d949d46e38295e9089cd99fcb376c27d1fa80ec1f"
+  },
+  "final_release_artifacts": {
+    "production_jar": {
+      "file_name": "bluemap-ars-nouveau-addon-0.1.0-alpha.1.jar",
+      "size": 153309,
+      "sha256": "d048145174754f9a134fcac449fd200ee6b423aedeca74fff3eef21f60e20c2d"
+    },
+    "sources_jar": {
+      "file_name": "bluemap-ars-nouveau-addon-0.1.0-alpha.1-sources.jar",
+      "size": 86704,
+      "sha256": "85029f1eda5878b76d742f39fa96a3470fe7718ed121d58ad99431a426b16369"
+    },
+    "pom": {
+      "file_name": "bluemap-ars-nouveau-addon-0.1.0-alpha.1.pom",
+      "size": 1341,
+      "sha256": "776cac1ec9abcf4a2b16e3ff1102036f18948e93ef5040fa22054904bba2686c"
+    },
+    "gradle_module": {
+      "file_name": "bluemap-ars-nouveau-addon-0.1.0-alpha.1.module.json",
+      "size": 2847,
+      "sha256": "2b22525d6e3108d9540b0a599405c9cade6aa933f707969022029d36955fdc9b"
+    }
+  },
+  "staged_equivalence": {
+    "entry_manifest": "provenance/accepted-staging-entries.sha256",
+    "identical_non_manifest_entries": 44,
+    "whole_jar_byte_identical": false,
+    "only_changed_entry_bytes": "META-INF/MANIFEST.MF",
+    "change_reason": "Implementation-Version changed from the accepted SNAPSHOT marker to the final release version."
+  },
+  "gallery": {
+    "archive_file_name": "ars_nouveau-gallery.zip",
+    "size": 2993,
+    "sha256": "a226b8ad42bbd3a6b8fea422d72fc941d1741f6f879287e600b75bd1f64bb21e",
+    "review_cases": 12,
+    "published_as_release_asset": false
+  },
+  "ephemeral_ci_inputs": {
+    "arsNouveau": {
+      "curseforge_project": 401955,
+      "curseforge_file": 8517890,
+      "size": 20096005,
+      "sha256": "90796df69bfb39b1a9c79edbfa01c2425e5b86aea47dc55ebdcbf30e88f47592"
+    },
+    "policy": "Downloaded only into the ephemeral runner, verified before use, and never bundled or uploaded."
+  },
+  "verification": {
+    "production_jar_exact_byte_gate": true,
+    "sources_jar_exact_byte_gate": true,
+    "publication_metadata_exact_byte_gate": true,
+    "staged_equivalence_gate": true,
+    "exact_input_gate": true
+  }
 }
