@@ -23,8 +23,13 @@ class StateRoutesTest {
         }
 
         assertEquals(6, admitted);
-        assertTrue(StateRoutes.facingless(Map.of()));
+        assertTrue(StateRoutes.relay(Map.of("waterlogged", "false")));
+        assertTrue(StateRoutes.relay(Map.of("waterlogged", "true")));
+        assertEquals("north", StateRoutes.turret(Map.of(
+                "facing", "north", "triggered", "false", "waterlogged", "false"
+        )));
         assertNull(StateRoutes.sixWay(Map.of("facing", "sideways")));
-        assertFalse(StateRoutes.facingless(Map.of("waterlogged", "false")));
+        assertFalse(StateRoutes.relay(Map.of()));
+        assertNull(StateRoutes.turret(Map.of("facing", "north")));
     }
 }

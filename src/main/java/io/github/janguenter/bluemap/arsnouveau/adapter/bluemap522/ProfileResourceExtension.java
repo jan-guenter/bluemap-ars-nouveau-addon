@@ -8,6 +8,7 @@ import de.bluecolored.bluemap.core.resources.pack.resourcepack.ResourcePackExten
 import de.bluecolored.bluemap.core.util.Key;
 import io.github.janguenter.bluemap.arsnouveau.activation.AddonRuntime;
 import io.github.janguenter.bluemap.arsnouveau.adapter.bluemap522.RendererDataRegistry.RenderSpec;
+import io.github.janguenter.bluemap.arsnouveau.adapter.bluemap522.RendererDataRegistry.StateRoute;
 import io.github.janguenter.bluemap.arsnouveau.model.InstalledGeoCompiler;
 import io.github.janguenter.bluemap.arsnouveau.model.InstalledGeoModel;
 import io.github.janguenter.bluemap.arsnouveau.profile.ArsNouveau5130Profile;
@@ -164,17 +165,22 @@ final class ProfileResourceExtension implements ResourcePackExtension {
                 resources, "spell_turret_timer", InstalledGeoCompiler.SPELL_TURRET_TIMER
         );
         return Map.ofEntries(
-                host("enchanting_apparatus", apparatus, ENCHANTING_APPARATUS, true),
-                host("imbuement_chamber", chamber, IMBUEMENT_CHAMBER, true),
-                host("relay", relay, SOURCE_RELAY, false),
-                host("relay_splitter", splitter, SOURCE_SPLITTER, false),
-                host("relay_deposit", deposit, SOURCE_DEPOSIT, false),
-                host("relay_warp", warp, SOURCE_WARP, false),
-                host("relay_collector", collector, SOURCE_COLLECTOR, false),
-                host("basic_spell_turret", basicTurret, BASIC_SPELL_TURRET, false),
-                host("rotating_spell_turret", basicTurret, BASIC_SPELL_TURRET, false),
-                host("spell_turret", spellTurret, SPELL_TURRET, false),
-                host("timer_spell_turret", timerTurret, SPELL_TURRET_TIMER, false)
+                host("enchanting_apparatus", apparatus, ENCHANTING_APPARATUS,
+                        StateRoute.MOUNTED),
+                host("imbuement_chamber", chamber, IMBUEMENT_CHAMBER,
+                        StateRoute.MOUNTED),
+                host("relay", relay, SOURCE_RELAY, StateRoute.RELAY),
+                host("relay_splitter", splitter, SOURCE_SPLITTER, StateRoute.RELAY),
+                host("relay_deposit", deposit, SOURCE_DEPOSIT, StateRoute.RELAY),
+                host("relay_warp", warp, SOURCE_WARP, StateRoute.RELAY),
+                host("relay_collector", collector, SOURCE_COLLECTOR, StateRoute.RELAY),
+                host("basic_spell_turret", basicTurret, BASIC_SPELL_TURRET,
+                        StateRoute.TURRET),
+                host("rotating_spell_turret", basicTurret, BASIC_SPELL_TURRET,
+                        StateRoute.ROTATING_TURRET),
+                host("spell_turret", spellTurret, SPELL_TURRET, StateRoute.TURRET),
+                host("timer_spell_turret", timerTurret, SPELL_TURRET_TIMER,
+                        StateRoute.TURRET)
         );
     }
 
@@ -192,10 +198,10 @@ final class ProfileResourceExtension implements ResourcePackExtension {
             String block,
             InstalledGeoModel model,
             Key texture,
-            boolean sixWay
+            StateRoute route
     ) {
         return Map.entry(
-                "ars_nouveau:" + block, new RenderSpec(model, texture, sixWay)
+                "ars_nouveau:" + block, new RenderSpec(model, texture, route)
         );
     }
 

@@ -12,6 +12,7 @@ import de.bluecolored.bluemap.core.util.Direction;
 import de.bluecolored.bluemap.core.util.Key;
 import de.bluecolored.bluemap.core.util.math.Color;
 import de.bluecolored.bluemap.core.world.block.BlockNeighborhood;
+import io.github.janguenter.bluemap.arsnouveau.adapter.bluemap522.RendererDataRegistry.StateRoute;
 import io.github.janguenter.bluemap.arsnouveau.model.InstalledGeoModel;
 import io.github.janguenter.bluemap.arsnouveau.model.InstalledGeoModel.Quad;
 import io.github.janguenter.bluemap.arsnouveau.model.InstalledGeoModel.Vec3;
@@ -40,6 +41,7 @@ final class InstalledGeoMeshEmitter {
     boolean emit(
             InstalledGeoModel model,
             Key textureKey,
+            StateRoute route,
             String facing,
             BlockNeighborhood block,
             TileModelView target,
@@ -52,7 +54,7 @@ final class InstalledGeoMeshEmitter {
         int material = textures.get(textureKey);
         float topOpacity = 0F;
         for (Quad quad : model.quads()) {
-            Vec3 normal = transformNormal(quad.normal(), facing);
+            Vec3 normal = transformNormal(quad.normal(), route, facing);
             if (settings.isRenderTopOnly() && normal.y() <= 0D) {
                 continue;
             }
@@ -63,7 +65,7 @@ final class InstalledGeoMeshEmitter {
             if (block.isRemoveIfCave() && visibleLight == 0) {
                 continue;
             }
-            emitQuad(quad, facing, target, material, light);
+            emitQuad(quad, route, facing, target, material, light);
             if (normal.y() > 0D) {
                 Color average = new Color().set(texture.getColorPremultiplied());
                 float lightFactor = Math.max(
@@ -87,15 +89,16 @@ final class InstalledGeoMeshEmitter {
 
     private static void emitQuad(
             Quad quad,
+            StateRoute route,
             String facing,
             TileModelView target,
             int material,
             FaceLighting.Sample light
     ) {
-        Vertex first = transform(quad.first(), facing);
-        Vertex second = transform(quad.second(), facing);
-        Vertex third = transform(quad.third(), facing);
-        Vertex fourth = transform(quad.fourth(), facing);
+        Vertex first = transform(quad.first(), route, facing);
+        Vertex second = transform(quad.second(), route, facing);
+        Vertex third = transform(quad.third(), route, facing);
+        Vertex fourth = transform(quad.fourth(), route, facing);
         int start = target.add(2);
         TileModel mesh = target.getTileModel();
         positions(mesh, start, first, second, third);
@@ -111,29 +114,41 @@ final class InstalledGeoMeshEmitter {
         }
     }
 
-    private static Vertex transform(Vertex vertex, String facing) {
+    private static Vertex transform(Vertex vertex, StateRoute route, String facing) {
         return new Vertex(
-                transformPoint(vertex.position(), facing), vertex.u(), vertex.v()
+                transformPoint(vertex.position(), route, facing), vertex.u(), vertex.v()
         );
     }
 
     static Vec3 transformPoint(Vec3 point, String facing) {
-        return orientPoint(point, facing).add(BLOCK_OFFSET);
+        return transformPoint(point, StateRoute.MOUNTED, facing);
     }
 
-    static Vec3 transformNormal(Vec3 normal, String facing) {
-        return orient(normal, facing);
+    static Vec3 transformPoint(Vec3 point, StateRoute route, String facing) {
+        Vec3 transformed = switch (route) {
+            case MOUNTED -> orientMountedPoint(point, facing);
+            case RELAY -> point;
+            case TURRET -> orientTurret(point, facing);
+            case ROTATING_TURRET -> point.rotateY(90D);
+        };
+        return transformed.add(BLOCK_OFFSET);
     }
 
-    private static Vec3 orientPoint(Vec3 point, String facing) {
-        if (facing == null) {
-            return point;
-        }
-        return orient(point.subtract(MODEL_CENTER), facing).add(MODEL_CENTER);
+    static Vec3 transformNormal(Vec3 normal, StateRoute route, String facing) {
+        return switch (route) {
+            case MOUNTED -> orientMounted(normal, facing);
+            case RELAY -> normal;
+            case TURRET -> orientTurretNormal(normal, facing);
+            case ROTATING_TURRET -> normal.rotateY(90D);
+        };
     }
 
-    private static Vec3 orient(Vec3 point, String facing) {
-        if (facing == null || "up".equals(facing)) {
+    private static Vec3 orientMountedPoint(Vec3 point, String facing) {
+        return orientMounted(point.subtract(MODEL_CENTER), facing).add(MODEL_CENTER);
+    }
+
+    private static Vec3 orientMounted(Vec3 point, String facing) {
+        if ("up".equals(facing)) {
             return point;
         }
         return switch (facing) {
@@ -143,6 +158,30 @@ final class InstalledGeoMeshEmitter {
             case "east" -> point.rotateX(90D).rotateY(90D);
             case "west" -> point.rotateX(90D).rotateY(-90D);
             default -> throw new IllegalArgumentException("unknown installed GEO facing");
+        };
+    }
+
+    private static Vec3 orientTurret(Vec3 point, String facing) {
+        return switch (facing) {
+            case "north" -> point;
+            case "south" -> point.rotateY(180D);
+            case "west" -> point.rotateY(90D);
+            case "east" -> point.rotateY(270D);
+            case "up" -> point.rotateX(90D).add(new Vec3(0D, 0.5D, -0.5D));
+            case "down" -> point.rotateX(-90D).add(new Vec3(0D, 0.5D, 0.5D));
+            default -> throw new IllegalArgumentException("unknown turret facing");
+        };
+    }
+
+    private static Vec3 orientTurretNormal(Vec3 normal, String facing) {
+        return switch (facing) {
+            case "north" -> normal;
+            case "south" -> normal.rotateY(180D);
+            case "west" -> normal.rotateY(90D);
+            case "east" -> normal.rotateY(270D);
+            case "up" -> normal.rotateX(90D);
+            case "down" -> normal.rotateX(-90D);
+            default -> throw new IllegalArgumentException("unknown turret facing");
         };
     }
 

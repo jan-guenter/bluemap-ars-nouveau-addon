@@ -29,7 +29,14 @@ final class RendererDataRegistry {
         return DATA.get(pack);
     }
 
-    record RenderSpec(InstalledGeoModel model, Key texture, boolean sixWay) {
+    record RenderSpec(InstalledGeoModel model, Key texture, StateRoute route) {
+    }
+
+    enum StateRoute {
+        MOUNTED,
+        RELAY,
+        TURRET,
+        ROTATING_TURRET
     }
 
     record Data(Map<String, RenderSpec> hosts, VariantRendererCatalog variants) {

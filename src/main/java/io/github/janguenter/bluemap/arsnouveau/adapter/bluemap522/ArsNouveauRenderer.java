@@ -82,17 +82,17 @@ final class ArsNouveauRenderer implements BlockRenderer {
             return false;
         }
         Map<String, String> properties = block.getBlockState().getProperties();
-        String facing = null;
-        if (spec.sixWay()) {
-            facing = StateRoutes.sixWay(properties);
-            if (facing == null) {
-                return false;
-            }
-        } else if (!StateRoutes.facingless(properties)) {
+        String facing = switch (spec.route()) {
+            case MOUNTED -> StateRoutes.sixWay(properties);
+            case RELAY -> StateRoutes.relay(properties) ? "north" : null;
+            case TURRET, ROTATING_TURRET -> StateRoutes.turret(properties);
+        };
+        if (facing == null) {
             return false;
         }
         return geo.emit(
-                spec.model(), spec.texture(), facing, block, target, mapColor
+                spec.model(), spec.texture(), spec.route(), facing,
+                block, target, mapColor
         );
     }
 

@@ -11,6 +11,7 @@ final class StateRoutes {
     static final Set<String> FACINGS = Set.of(
             "north", "south", "west", "east", "up", "down"
     );
+    private static final Set<String> BOOLEANS = Set.of("false", "true");
 
     private StateRoutes() {
     }
@@ -20,7 +21,17 @@ final class StateRoutes {
         return properties.size() == 1 && FACINGS.contains(facing) ? facing : null;
     }
 
-    static boolean facingless(Map<String, String> properties) {
-        return properties.isEmpty();
+    static boolean relay(Map<String, String> properties) {
+        return properties.size() == 1
+                && BOOLEANS.contains(properties.get("waterlogged"));
+    }
+
+    static String turret(Map<String, String> properties) {
+        String facing = properties.get("facing");
+        return properties.size() == 3
+                && FACINGS.contains(facing)
+                && BOOLEANS.contains(properties.get("triggered"))
+                && BOOLEANS.contains(properties.get("waterlogged"))
+                ? facing : null;
     }
 }
