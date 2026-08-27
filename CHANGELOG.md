@@ -3,5 +3,6 @@
 ## Unreleased
 
 - Generated a fail-closed Java 21 BlueMap add-on seed for `ars-nouveau-5.13.0-mc1.21.1`.
-- SCAFFOLD_NOT_IMPLEMENTED: renderer implementation and visual acceptance
+- Added the initial exact-profile renderer and bounded visual gallery for owner
+  review.
   remain pending.

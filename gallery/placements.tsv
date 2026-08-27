@@ -1,2 +1,13 @@
 case_id	label	x	y	z	block_state	expected
-stock-control	stone stock rendering control	176	100	175	minecraft:stone	stock-visible
+enchanting-apparatus	Enchanting Apparatus facing up	176	101	176	ars_nouveau:enchanting_apparatus[facing=up]	installed-geo-static-visible
+imbuement-chamber	Imbuement Chamber facing up	184	101	176	ars_nouveau:imbuement_chamber[facing=up]	installed-geo-static-visible
+relay	Source Relay	176	101	184	ars_nouveau:relay	installed-geo-static-visible
+relay-splitter	Relay Splitter	182	101	184	ars_nouveau:relay_splitter	installed-geo-static-visible
+relay-deposit	Relay Deposit	188	101	184	ars_nouveau:relay_deposit	installed-geo-static-visible
+relay-warp	Warp Relay	194	101	184	ars_nouveau:relay_warp	installed-geo-static-visible
+relay-collector	Relay Collector	200	101	184	ars_nouveau:relay_collector	installed-geo-static-visible
+basic-spell-turret	Basic Spell Turret	176	101	192	ars_nouveau:basic_spell_turret	installed-geo-static-visible
+rotating-spell-turret	Rotating Spell Turret	184	101	192	ars_nouveau:rotating_spell_turret	installed-geo-static-visible
+spell-turret	Spell Turret	192	101	192	ars_nouveau:spell_turret	installed-geo-static-visible
+timer-spell-turret	Timer Spell Turret	200	101	192	ars_nouveau:timer_spell_turret	installed-geo-static-visible
+stock-control	stone stock rendering control	200	101	200	minecraft:stone	stock-visible
