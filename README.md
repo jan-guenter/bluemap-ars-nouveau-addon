@@ -3,11 +3,11 @@
 A Java 21 BlueMap add-on for the exact `ars-nouveau-5.13.0-mc1.21.1` profile in All the Mons
 `1.2.0` / Minecraft `1.21.1`.
 
-Status: published `0.1.0-alpha.1`, from its owner-accepted release candidate.
-The unreleased source-ownership migration described below is not a new release
-candidate. The exact artifact gate admits only Ars Nouveau 5.13.0. Eleven
-block-entity-rendered hosts use deterministic static meshes compiled from ten
-operator-installed GEO resources and their installed textures.
+Version `0.1.0-alpha.2` keeps the owner-accepted renderer while replacing its
+private installed-GEO compiler with the pinned shared source module. The exact
+artifact gate admits only Ars Nouveau 5.13.0. Eleven block-entity-rendered
+hosts use deterministic static meshes compiled from ten operator-installed GEO
+resources and their installed textures.
 
 ## Build
 

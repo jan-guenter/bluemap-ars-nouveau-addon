@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
   "status": "owner-accepted-release-candidate",
-  "version": "0.1.0-alpha.1",
-  "release_date": "2026-08-27",
+  "version": "0.1.0-alpha.2",
+  "release_date": "2026-08-30",
   "repository": "https://github.com/jan-guenter/bluemap-ars-nouveau-addon",
-  "tag": "v0.1.0-alpha.1",
-  "maven_coordinate": "io.github.jan-guenter:bluemap-ars-nouveau-addon:0.1.0-alpha.1",
+  "tag": "v0.1.0-alpha.2",
+  "maven_coordinate": "io.github.jan-guenter:bluemap-ars-nouveau-addon:0.1.0-alpha.2",
   "owner_accepted_staging": {
     "accepted_at": "2026-08-27",
     "commit": "eec862be3212abed051992212d7978578b6ee950",
@@ -17,37 +17,79 @@
   },
   "accepted_staging_entries": {
     "path": "provenance/accepted-staging-entries.sha256",
-    "entry_count": 44,
-    "sha256": "1daea276222ed11129e6779d949d46e38295e9089cd99fcb376c27d1fa80ec1f"
+    "entry_count": 46,
+    "sha256": "21ee32959a317efbd1556fc75fa321f5f8f95f806af418c4744f37abd5db0c0b"
   },
   "final_release_artifacts": {
     "production_jar": {
-      "file_name": "bluemap-ars-nouveau-addon-0.1.0-alpha.1.jar",
-      "size": 153309,
-      "sha256": "d048145174754f9a134fcac449fd200ee6b423aedeca74fff3eef21f60e20c2d"
+      "file_name": "bluemap-ars-nouveau-addon-0.1.0-alpha.2.jar",
+      "size": 164317,
+      "sha256": "5c5ae163f046ba28a48d28d03a2abc0b8eb6494eb8607dbb08e5f0a256bf1ce0"
     },
     "sources_jar": {
-      "file_name": "bluemap-ars-nouveau-addon-0.1.0-alpha.1-sources.jar",
-      "size": 86704,
-      "sha256": "85029f1eda5878b76d742f39fa96a3470fe7718ed121d58ad99431a426b16369"
+      "file_name": "bluemap-ars-nouveau-addon-0.1.0-alpha.2-sources.jar",
+      "size": 89940,
+      "sha256": "0b672c2e6637f599bf3aca3be1cfb1b34fad7861b3d548f23026b5b97785fd2c"
     },
     "pom": {
-      "file_name": "bluemap-ars-nouveau-addon-0.1.0-alpha.1.pom",
+      "file_name": "bluemap-ars-nouveau-addon-0.1.0-alpha.2.pom",
       "size": 1341,
-      "sha256": "776cac1ec9abcf4a2b16e3ff1102036f18948e93ef5040fa22054904bba2686c"
+      "sha256": "fa830efa0bbbab0f6cac002fd2b946816349e486909e45fa219b8e8c57ba9b6e"
     },
     "gradle_module": {
-      "file_name": "bluemap-ars-nouveau-addon-0.1.0-alpha.1.module.json",
+      "file_name": "bluemap-ars-nouveau-addon-0.1.0-alpha.2.module.json",
       "size": 2847,
-      "sha256": "2b22525d6e3108d9540b0a599405c9cade6aa933f707969022029d36955fdc9b"
+      "sha256": "aafc6c6e0662d7d273808f4e341212af60f5184a895200f831be4b3a88d86548"
+    },
+    "sha256sums": {
+      "file_name": "SHA256SUMS",
+      "size": 456,
+      "sha256": "2baec1098510327c0bebfa67764625a982312b7a3f7a2053b7805603e40c9926"
     }
   },
   "staged_equivalence": {
     "entry_manifest": "provenance/accepted-staging-entries.sha256",
-    "identical_non_manifest_entries": 44,
-    "whole_jar_byte_identical": false,
-    "only_changed_entry_bytes": "META-INF/MANIFEST.MF",
-    "change_reason": "Implementation-Version changed from the accepted SNAPSHOT marker to the final release version."
+    "identical_non_manifest_entries": 46,
+    "whole_jar_byte_identical": true,
+    "only_changed_entry_bytes": "none",
+    "change_reason": "The sealed alpha.2 candidate is the reviewed source-module migration build. Its legacy visual acceptance is carried forward by exact compiler parity, unchanged gallery sources, unchanged resource admission, and unchanged renderer behavior."
+  },
+  "installed_geo_module_migration": {
+    "baseline_version": "0.1.0-alpha.1",
+    "baseline_release_commit": "32cb3e041bc7bc5bb4e6325cfb8b57a9604f4c28",
+    "baseline_production_jar_size": 153309,
+    "baseline_production_jar_sha256": "d048145174754f9a134fcac449fd200ee6b423aedeca74fff3eef21f60e20c2d",
+    "repository": "https://github.com/jan-guenter/bluemap-installed-geo-resource-models",
+    "version": "0.1.0-alpha.1",
+    "tag": "v0.1.0-alpha.1",
+    "commit": "c80a83eb6e2cb0bb05a69ace9716ef08b9db14f2",
+    "source_tree": "8db87f933557d54c5ede2db70d94f67eaf44c30b",
+    "production_archive": {
+      "old_entries": 45,
+      "new_entries": 47,
+      "unchanged_entries": 24,
+      "changed_common_entries": 9,
+      "removed_local_compiler_model_classes": 12,
+      "added_shared_compiler_model_pose_classes": 14
+    },
+    "sources_archive": {
+      "old_entries": 25,
+      "new_entries": 26,
+      "unchanged_entries": 17,
+      "changed_common_entries": 6,
+      "removed_local_compiler_model_sources": 2,
+      "added_shared_compiler_model_pose_sources": 3
+    },
+    "parity": {
+      "complete_ordered_mesh_bits_equal": true,
+      "installed_resource_cases_compared": 10,
+      "installed_resource_quads_compared": 924,
+      "consumer_parity_fixtures_passed": 7,
+      "consumer_tests_passed": 16
+    },
+    "gallery_sources_unchanged": true,
+    "resource_admission_unchanged": true,
+    "renderer_behavior_change": false
   },
   "gallery": {
     "archive_file_name": "ars_nouveau-gallery.zip",

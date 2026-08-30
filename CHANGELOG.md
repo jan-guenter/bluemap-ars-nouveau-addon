@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.1.0-alpha.2 - 2026-08-30
 
 - Replaced the repository-local installed-GEO compiler and model with the
   released first-party source module while keeping all ten Ars Nouveau
