@@ -9,11 +9,11 @@ import de.bluecolored.bluemap.core.util.Key;
 import io.github.janguenter.bluemap.arsnouveau.activation.AddonRuntime;
 import io.github.janguenter.bluemap.arsnouveau.adapter.bluemap522.RendererDataRegistry.RenderSpec;
 import io.github.janguenter.bluemap.arsnouveau.adapter.bluemap522.RendererDataRegistry.StateRoute;
-import io.github.janguenter.bluemap.arsnouveau.model.InstalledGeoCompiler;
-import io.github.janguenter.bluemap.arsnouveau.model.InstalledGeoModel;
 import io.github.janguenter.bluemap.arsnouveau.profile.ArsNouveau5130Profile;
 import io.github.janguenter.bluemap.arsnouveau.profile.ArsNouveau5130Profile.ResourcePin;
 import io.github.janguenter.bluemap.arsnouveau.profile.ExactArtifactDetector;
+import io.github.janguenter.bluemap.resource.installedgeo.model.InstalledGeoCompiler;
+import io.github.janguenter.bluemap.resource.installedgeo.model.InstalledGeoModel;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -135,34 +135,34 @@ final class ProfileResourceExtension implements ResourcePackExtension {
 
     private static Map<String, RenderSpec> compileHosts(Map<String, byte[]> resources) {
         InstalledGeoModel apparatus = compile(
-                resources, "enchanting_apparatus", InstalledGeoCompiler.ENCHANTING_APPARATUS
+                resources, "enchanting_apparatus", ArsNouveau5130Profile.ENCHANTING_APPARATUS
         );
         InstalledGeoModel chamber = compile(
-                resources, "imbuement_chamber", InstalledGeoCompiler.IMBUEMENT_CHAMBER
+                resources, "imbuement_chamber", ArsNouveau5130Profile.IMBUEMENT_CHAMBER
         );
         InstalledGeoModel relay = compile(
-                resources, "source_relay", InstalledGeoCompiler.SOURCE_RELAY
+                resources, "source_relay", ArsNouveau5130Profile.SOURCE_RELAY
         );
         InstalledGeoModel splitter = compile(
-                resources, "source_splitter", InstalledGeoCompiler.SOURCE_SPLITTER
+                resources, "source_splitter", ArsNouveau5130Profile.SOURCE_SPLITTER
         );
         InstalledGeoModel deposit = compile(
-                resources, "source_deposit", InstalledGeoCompiler.SOURCE_DEPOSIT
+                resources, "source_deposit", ArsNouveau5130Profile.SOURCE_DEPOSIT
         );
         InstalledGeoModel warp = compile(
-                resources, "source_warp", InstalledGeoCompiler.SOURCE_WARP
+                resources, "source_warp", ArsNouveau5130Profile.SOURCE_WARP
         );
         InstalledGeoModel collector = compile(
-                resources, "source_collector", InstalledGeoCompiler.SOURCE_COLLECTOR
+                resources, "source_collector", ArsNouveau5130Profile.SOURCE_COLLECTOR
         );
         InstalledGeoModel basicTurret = compile(
-                resources, "basic_spell_turret", InstalledGeoCompiler.BASIC_SPELL_TURRET
+                resources, "basic_spell_turret", ArsNouveau5130Profile.BASIC_SPELL_TURRET
         );
         InstalledGeoModel spellTurret = compile(
-                resources, "spell_turret", InstalledGeoCompiler.SPELL_TURRET
+                resources, "spell_turret", ArsNouveau5130Profile.SPELL_TURRET
         );
         InstalledGeoModel timerTurret = compile(
-                resources, "spell_turret_timer", InstalledGeoCompiler.SPELL_TURRET_TIMER
+                resources, "spell_turret_timer", ArsNouveau5130Profile.SPELL_TURRET_TIMER
         );
         return Map.ofEntries(
                 host("enchanting_apparatus", apparatus, ENCHANTING_APPARATUS,

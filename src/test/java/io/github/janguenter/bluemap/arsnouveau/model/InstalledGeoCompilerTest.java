@@ -13,6 +13,9 @@ import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
+import io.github.janguenter.bluemap.arsnouveau.profile.ArsNouveau5130Profile;
+import io.github.janguenter.bluemap.resource.installedgeo.model.InstalledGeoCompiler;
+import io.github.janguenter.bluemap.resource.installedgeo.model.InstalledGeoModel;
 import org.junit.jupiter.api.Assumptions;
 import org.junit.jupiter.api.Test;
 
@@ -20,16 +23,16 @@ class InstalledGeoCompilerTest {
 
     private static final String GEO_ROOT = "assets/ars_nouveau/geo/";
     private static final List<GeometryCase> GEOMETRIES = List.of(
-            geometry("enchanting_apparatus", InstalledGeoCompiler.ENCHANTING_APPARATUS),
-            geometry("imbuement_chamber", InstalledGeoCompiler.IMBUEMENT_CHAMBER),
-            geometry("source_relay", InstalledGeoCompiler.SOURCE_RELAY),
-            geometry("source_splitter", InstalledGeoCompiler.SOURCE_SPLITTER),
-            geometry("source_deposit", InstalledGeoCompiler.SOURCE_DEPOSIT),
-            geometry("source_warp", InstalledGeoCompiler.SOURCE_WARP),
-            geometry("source_collector", InstalledGeoCompiler.SOURCE_COLLECTOR),
-            geometry("basic_spell_turret", InstalledGeoCompiler.BASIC_SPELL_TURRET),
-            geometry("spell_turret", InstalledGeoCompiler.SPELL_TURRET),
-            geometry("spell_turret_timer", InstalledGeoCompiler.SPELL_TURRET_TIMER)
+            geometry("enchanting_apparatus", ArsNouveau5130Profile.ENCHANTING_APPARATUS),
+            geometry("imbuement_chamber", ArsNouveau5130Profile.IMBUEMENT_CHAMBER),
+            geometry("source_relay", ArsNouveau5130Profile.SOURCE_RELAY),
+            geometry("source_splitter", ArsNouveau5130Profile.SOURCE_SPLITTER),
+            geometry("source_deposit", ArsNouveau5130Profile.SOURCE_DEPOSIT),
+            geometry("source_warp", ArsNouveau5130Profile.SOURCE_WARP),
+            geometry("source_collector", ArsNouveau5130Profile.SOURCE_COLLECTOR),
+            geometry("basic_spell_turret", ArsNouveau5130Profile.BASIC_SPELL_TURRET),
+            geometry("spell_turret", ArsNouveau5130Profile.SPELL_TURRET),
+            geometry("spell_turret_timer", ArsNouveau5130Profile.SPELL_TURRET_TIMER)
     );
 
     @Test
@@ -58,7 +61,7 @@ class InstalledGeoCompilerTest {
                 changed, apparatus.contract()
         ));
         assertThrows(IllegalArgumentException.class, () -> InstalledGeoCompiler.compile(
-                exactEntry(apparatus.path()), InstalledGeoCompiler.SOURCE_RELAY
+                exactEntry(apparatus.path()), ArsNouveau5130Profile.SOURCE_RELAY
         ));
     }
 

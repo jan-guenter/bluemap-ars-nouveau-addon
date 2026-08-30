@@ -4,7 +4,7 @@ package io.github.janguenter.bluemap.arsnouveau.adapter.bluemap522;
 
 import de.bluecolored.bluemap.core.resources.pack.resourcepack.ResourcePack;
 import de.bluecolored.bluemap.core.util.Key;
-import io.github.janguenter.bluemap.arsnouveau.model.InstalledGeoModel;
+import io.github.janguenter.bluemap.resource.installedgeo.model.InstalledGeoModel;
 
 import java.util.IdentityHashMap;
 import java.util.Map;

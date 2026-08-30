@@ -3,18 +3,22 @@
 A Java 21 BlueMap add-on for the exact `ars-nouveau-5.13.0-mc1.21.1` profile in All the Mons
 `1.2.0` / Minecraft `1.21.1`.
 
-Status: owner-accepted `0.1.0-alpha.1` release candidate. The exact artifact
-gate admits only Ars Nouveau 5.13.0. Eleven block-entity-rendered hosts use
-deterministic static meshes compiled from ten operator-installed GEO resources
-and their installed textures.
+Status: published `0.1.0-alpha.1`, from its owner-accepted release candidate.
+The unreleased source-ownership migration described below is not a new release
+candidate. The exact artifact gate admits only Ars Nouveau 5.13.0. Eleven
+block-entity-rendered hosts use deterministic static meshes compiled from ten
+operator-installed GEO resources and their installed textures.
 
 ## Build
 
 Clone with `--recurse-submodules`, or initialize an existing checkout with
-`git submodule update --init --recursive -- tooling/bluemap-addon-toolkit`.
-The settings preflight accepts only the committed toolkit gitlink at commit
-`6cd34a8368cc4ee8628fbe830a90ec5b14960629` and rejects an uninitialized,
-changed, or dirty toolkit checkout.
+`git submodule update --init --recursive -- tooling/bluemap-addon-toolkit
+modules/bluemap-installed-geo-resource-models`. The settings preflight accepts
+only the committed toolkit gitlink at
+`6cd34a8368cc4ee8628fbe830a90ec5b14960629` and the Installed-GEO source
+module at `c80a83eb6e2cb0bb05a69ace9716ef08b9db14f2`, with Java source tree
+`8db87f933557d54c5ede2db70d94f67eaf44c30b`. It rejects an uninitialized,
+changed, or dirty checkout.
 
 ```bash
 gradle --no-daemon -PbluemapSourcePath=../bluemap-backport clean check build
@@ -24,6 +28,12 @@ gradle --no-daemon -PbluemapSourcePath=../bluemap-backport clean check build
 requires the exact Ars Nouveau JAR and validates the 12-case gallery. See
 `provenance/upstreams.json` for immutable artifact identities and
 the [execution guide](docs/EXECUTION.md) for the prototype-to-release loop.
+
+The build compiles the module's three Java source files directly and declares
+Gson 2.8.9 as an explicit compile-only dependency. The module JAR is neither a
+runtime dependency nor nested in the add-on. Ars Nouveau's ten structural
+contracts, exact resource admission, emitters, routes, and stock fallback stay
+local to this repository.
 
 ## Install
 
