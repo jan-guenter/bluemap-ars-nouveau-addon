@@ -2,11 +2,13 @@
 
 package io.github.janguenter.bluemap.arsnouveau.model;
 
-import io.github.janguenter.bluemap.arsnouveau.model.InstalledGeoModel.Quad;
-import io.github.janguenter.bluemap.arsnouveau.model.InstalledGeoModel.Vertex;
 import io.github.janguenter.bluemap.installedgeo.testing.InstalledGeoParityHarness;
 import io.github.janguenter.bluemap.installedgeo.testing.InstalledGeoParityHarness.MeshSnapshot;
 import io.github.janguenter.bluemap.installedgeo.testing.InstalledGeoParityHarness.VertexSnapshot;
+import io.github.janguenter.bluemap.resource.installedgeo.model.InstalledGeoCompiler;
+import io.github.janguenter.bluemap.resource.installedgeo.model.InstalledGeoModel;
+import io.github.janguenter.bluemap.resource.installedgeo.model.InstalledGeoModel.Quad;
+import io.github.janguenter.bluemap.resource.installedgeo.model.InstalledGeoModel.Vertex;
 
 class InstalledGeoParityContractTest extends InstalledGeoParityHarness {
 

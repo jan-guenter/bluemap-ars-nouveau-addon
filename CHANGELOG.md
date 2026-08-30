@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.0-alpha.2 - 2026-08-30
+
+- Replaced the repository-local installed-GEO compiler and model with the
+  released first-party source module while keeping all ten Ars Nouveau
+  contracts, resource admission, routes, emission, and fallback local.
+
 ## 0.1.0-alpha.1 - 2026-08-27
 
 - Generated a fail-closed Java 21 BlueMap add-on seed for `ars-nouveau-5.13.0-mc1.21.1`.

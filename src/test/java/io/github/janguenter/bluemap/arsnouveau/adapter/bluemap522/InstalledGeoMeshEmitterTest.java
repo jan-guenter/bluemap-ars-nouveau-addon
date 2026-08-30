@@ -5,7 +5,7 @@ package io.github.janguenter.bluemap.arsnouveau.adapter.bluemap522;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import io.github.janguenter.bluemap.arsnouveau.adapter.bluemap522.RendererDataRegistry.StateRoute;
-import io.github.janguenter.bluemap.arsnouveau.model.InstalledGeoModel.Vec3;
+import io.github.janguenter.bluemap.resource.installedgeo.model.InstalledGeoModel.Vec3;
 import org.junit.jupiter.api.Test;
 
 class InstalledGeoMeshEmitterTest {

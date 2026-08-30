@@ -4,6 +4,8 @@
 
 package io.github.janguenter.bluemap.arsnouveau.profile;
 
+import io.github.janguenter.bluemap.resource.installedgeo.model.InstalledGeoCompiler.Contract;
+
 import java.util.List;
 
 /** Exact All the Mons 1.2.0 profile `ars-nouveau-5.13.0-mc1.21.1`. */
@@ -19,6 +21,16 @@ public final class ArsNouveau5130Profile {
             "90796df69bfb39b1a9c79edbfa01c2425e5b86aea47dc55ebdcbf30e88f47592"
     );
     public static final List<ArtifactPin> ARTIFACTS = List.of(ARS_NOUVEAU);
+    public static final Contract ENCHANTING_APPARATUS = new Contract(15, 20, 120);
+    public static final Contract IMBUEMENT_CHAMBER = new Contract(6, 19, 114);
+    public static final Contract SOURCE_RELAY = new Contract(9, 17, 102);
+    public static final Contract SOURCE_SPLITTER = new Contract(7, 13, 78);
+    public static final Contract SOURCE_DEPOSIT = new Contract(5, 13, 78);
+    public static final Contract SOURCE_WARP = new Contract(7, 13, 78);
+    public static final Contract SOURCE_COLLECTOR = new Contract(5, 13, 78);
+    public static final Contract BASIC_SPELL_TURRET = new Contract(5, 14, 84);
+    public static final Contract SPELL_TURRET = new Contract(6, 17, 102);
+    public static final Contract SPELL_TURRET_TIMER = new Contract(6, 15, 90);
     public static final List<ResourcePin> RESOURCES = List.of(
             resource("geo/enchanting_apparatus.geo.json", 10_249,
                     "abd1209769340b411c0cd9e80e9d1d6fdfa8d3dffa5025f3c3e4946bd1267e22"),
