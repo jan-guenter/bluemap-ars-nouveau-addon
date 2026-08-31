@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.0-alpha.4 - 2026-08-31
+
+- Preserve the alpha.3 renderer and BlueMap 5.23 adapter bytes.
+- Seal Gradle module metadata with the exact Gradle 9.6.1 release toolchain.
+- Supersede the unpublished alpha.3 tag, whose workflow stopped before
+  creating release assets or a Maven package.
+
 ## 0.1.0-alpha.3 - 2026-08-31
 
 - Target only BlueMap feature-backport commit

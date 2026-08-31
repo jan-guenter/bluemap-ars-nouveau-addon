@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
   "status": "owner-accepted-release-candidate",
-  "version": "0.1.0-alpha.3",
+  "version": "0.1.0-alpha.4",
   "release_date": "2026-08-31",
   "repository": "https://github.com/jan-guenter/bluemap-ars-nouveau-addon",
-  "tag": "v0.1.0-alpha.3",
-  "maven_coordinate": "io.github.jan-guenter:bluemap-ars-nouveau-addon:0.1.0-alpha.3",
+  "tag": "v0.1.0-alpha.4",
+  "maven_coordinate": "io.github.jan-guenter:bluemap-ars-nouveau-addon:0.1.0-alpha.4",
   "owner_accepted_staging": {
     "accepted_at": "2026-08-31",
     "commit": "37e296e559af99f2d914ea7e930864cef8f9e5f6",
@@ -33,32 +33,40 @@
   },
   "final_release_artifacts": {
     "production_jar": {
-      "file_name": "bluemap-ars-nouveau-addon-0.1.0-alpha.3.jar",
+      "file_name": "bluemap-ars-nouveau-addon-0.1.0-alpha.4.jar",
       "size": 169426,
-      "sha256": "9c65afac336c9824bc4ba34f102e3bdeac1e354c127a2099c27845256092200a"
+      "sha256": "52ddc7760b5710f9af285311fe446fc525adb0f02a98549ca4aa5248a38d2966"
     },
     "sources_jar": {
-      "file_name": "bluemap-ars-nouveau-addon-0.1.0-alpha.3-sources.jar",
+      "file_name": "bluemap-ars-nouveau-addon-0.1.0-alpha.4-sources.jar",
       "size": 94766,
       "sha256": "af0a98988764c70bfd931d6e9625a4874d8a115382814ef55adec64f31fad90c"
     },
     "pom": {
-      "file_name": "bluemap-ars-nouveau-addon-0.1.0-alpha.3.pom",
+      "file_name": "bluemap-ars-nouveau-addon-0.1.0-alpha.4.pom",
       "size": 1341,
-      "sha256": "14708c16ddfae99945d883b27cce866c5e1dac6a075dab76d930753026f19f80"
+      "sha256": "66be3849663d9700fae5799506c538bff74609bfeb7b4929a541623b23f6e142"
     },
     "gradle_module": {
-      "file_name": "bluemap-ars-nouveau-addon-0.1.0-alpha.3.module.json",
+      "file_name": "bluemap-ars-nouveau-addon-0.1.0-alpha.4.module.json",
       "size": 2847,
-      "sha256": "4bf37976d41d7d963a8b85b94e6f242a2c2b52345824e0d8b3649216c9eeb98b"
+      "sha256": "4f1ede4d19ae5657952623c5aa4e1273106578229cfa0f6618dda7e793a948de"
     }
   },
   "staged_equivalence": {
     "entry_manifest": "provenance/accepted-staging-entries.sha256",
     "identical_non_manifest_entries": 47,
-    "whole_jar_byte_identical": true,
-    "only_changed_entry_bytes": "none",
-    "change_reason": "The release JAR is byte-identical to the owner-accepted BlueMap 5.23 integration candidate."
+    "whole_jar_byte_identical": false,
+    "only_changed_entry_bytes": "META-INF/MANIFEST.MF",
+    "change_reason": "Alpha.4 changes only release identity in the JAR manifest. All 47 non-manifest entries are byte-identical to the owner-accepted alpha.3 integration candidate."
+  },
+  "release_pipeline_correction": {
+    "superseded_tag": "v0.1.0-alpha.3",
+    "superseded_tag_object": "6d951038bb4cf582d81d546f5a836ac0a2c55225",
+    "superseded_target_commit": "c42bf3877e0197d668481509c1cd0c44db127b5d",
+    "failed_release_run": 33378092705,
+    "failure_scope": "The alpha.3 workflow stopped before asset creation, attestation, Maven publication, or public release because its Gradle module hash had been sealed with Gradle 9.4 instead of the workflow's Gradle 9.6.1.",
+    "renderer_or_profile_change": false
   },
   "exact_feature_backport_migration": {
     "bluemap_version": "5.22-feature.backport-5.23-stateless-java-web-server-46",
@@ -114,7 +122,7 @@
     "sources_archive_boundary_gate": true,
     "adapter_api_migration_boundary_gate": true,
     "exact_feature_backport_runtime_identity_gate": true,
-    "gradle_9_4_clean_builds": 1,
+    "gradle_9_6_1_promotion_builds": 1,
     "gallery_lint": true,
     "checkstyle": true,
     "actionlint": true
