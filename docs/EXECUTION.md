@@ -4,12 +4,14 @@ This repository starts inactive and stock-safe. Implement only the smallest
 observed Ars Nouveau rendering defect before staging.
 
 Before running Gradle gates, activate a Python 3.11 or newer virtual
-environment, initialize both pinned source submodules, and install the exact
+environment, initialize all pinned source submodules, and install the exact
 development-only toolkit into the environment:
 
 ```bash
 git submodule update --init --recursive -- \
-  tooling/bluemap-addon-toolkit modules/bluemap-installed-geo-resource-models
+  tooling/bluemap-addon-toolkit \
+  modules/bluemap-installed-geo-resource-models \
+  modules/bluemap-addon-adapter-api
 python -m pip install --disable-pip-version-check --no-deps \
   --require-hashes --only-binary=:all: \
   --requirement requirements/toolkit.txt
@@ -20,6 +22,10 @@ The requirement locks the 20,585-byte `v0.3.0-alpha.1` wheel at SHA-256
 The Gradle settings preflight separately locks the Installed-GEO module commit
 and its `src/main/java` tree, requires a clean checkout, and compiles its three
 Java sources directly with Gson 2.8.9 as an explicit compile-only dependency.
+It also locks Adapter API `0.1.0-alpha.2` commit
+`e81f08bc4bfbf02d810ec8949a019130e2e61634` and source tree
+`2f974c9bb2ba13888d69682f86f30f58922d30eb`, compiling its four sources
+directly into the add-on.
 
 ## Prototype
 

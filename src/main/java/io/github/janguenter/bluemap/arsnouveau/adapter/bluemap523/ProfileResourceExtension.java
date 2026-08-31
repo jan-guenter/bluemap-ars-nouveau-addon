@@ -1,14 +1,14 @@
 /* SPDX-License-Identifier: MIT */
 
-package io.github.janguenter.bluemap.arsnouveau.adapter.bluemap522;
+package io.github.janguenter.bluemap.arsnouveau.adapter.bluemap523;
 
 import de.bluecolored.bluemap.core.map.hires.block.BlockRendererType;
 import de.bluecolored.bluemap.core.resources.pack.resourcepack.ResourcePack;
 import de.bluecolored.bluemap.core.resources.pack.resourcepack.ResourcePackExtension;
 import de.bluecolored.bluemap.core.util.Key;
 import io.github.janguenter.bluemap.arsnouveau.activation.AddonRuntime;
-import io.github.janguenter.bluemap.arsnouveau.adapter.bluemap522.RendererDataRegistry.RenderSpec;
-import io.github.janguenter.bluemap.arsnouveau.adapter.bluemap522.RendererDataRegistry.StateRoute;
+import io.github.janguenter.bluemap.arsnouveau.adapter.bluemap523.RendererDataRegistry.RenderSpec;
+import io.github.janguenter.bluemap.arsnouveau.adapter.bluemap523.RendererDataRegistry.StateRoute;
 import io.github.janguenter.bluemap.arsnouveau.profile.ArsNouveau5130Profile;
 import io.github.janguenter.bluemap.arsnouveau.profile.ArsNouveau5130Profile.ResourcePin;
 import io.github.janguenter.bluemap.arsnouveau.profile.ExactArtifactDetector;

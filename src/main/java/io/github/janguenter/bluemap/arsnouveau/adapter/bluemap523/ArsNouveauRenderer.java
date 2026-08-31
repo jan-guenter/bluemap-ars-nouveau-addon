@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: MIT */
 
-package io.github.janguenter.bluemap.arsnouveau.adapter.bluemap522;
+package io.github.janguenter.bluemap.arsnouveau.adapter.bluemap523;
 
 import de.bluecolored.bluemap.core.map.TextureGallery;
 import de.bluecolored.bluemap.core.map.hires.MaxCapacityReachedException;
@@ -13,7 +13,7 @@ import de.bluecolored.bluemap.core.resources.pack.resourcepack.blockstate.Varian
 import de.bluecolored.bluemap.core.util.math.Color;
 import de.bluecolored.bluemap.core.world.block.BlockNeighborhood;
 import io.github.janguenter.bluemap.arsnouveau.activation.AddonRuntime;
-import io.github.janguenter.bluemap.arsnouveau.adapter.bluemap522.RendererDataRegistry.RenderSpec;
+import io.github.janguenter.bluemap.arsnouveau.adapter.bluemap523.RendererDataRegistry.RenderSpec;
 
 import java.util.IdentityHashMap;
 import java.util.Map;
