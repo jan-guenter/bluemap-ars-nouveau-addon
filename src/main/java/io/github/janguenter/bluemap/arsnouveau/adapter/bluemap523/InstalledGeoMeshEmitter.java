@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: MIT */
 
-package io.github.janguenter.bluemap.arsnouveau.adapter.bluemap522;
+package io.github.janguenter.bluemap.arsnouveau.adapter.bluemap523;
 
 import de.bluecolored.bluemap.core.map.TextureGallery;
 import de.bluecolored.bluemap.core.map.hires.RenderSettings;
@@ -12,7 +12,7 @@ import de.bluecolored.bluemap.core.util.Direction;
 import de.bluecolored.bluemap.core.util.Key;
 import de.bluecolored.bluemap.core.util.math.Color;
 import de.bluecolored.bluemap.core.world.block.BlockNeighborhood;
-import io.github.janguenter.bluemap.arsnouveau.adapter.bluemap522.RendererDataRegistry.StateRoute;
+import io.github.janguenter.bluemap.arsnouveau.adapter.bluemap523.RendererDataRegistry.StateRoute;
 import io.github.janguenter.bluemap.resource.installedgeo.model.InstalledGeoModel;
 import io.github.janguenter.bluemap.resource.installedgeo.model.InstalledGeoModel.Quad;
 import io.github.janguenter.bluemap.resource.installedgeo.model.InstalledGeoModel.Vec3;
