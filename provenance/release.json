@@ -1,12 +1,20 @@
 {
   "schema_version": 1,
-  "status": "unpublished-migration-candidate",
+  "status": "owner-accepted-release-candidate",
   "version": "0.1.0-alpha.3",
   "release_date": "2026-08-31",
   "repository": "https://github.com/jan-guenter/bluemap-ars-nouveau-addon",
   "tag": "v0.1.0-alpha.3",
   "maven_coordinate": "io.github.jan-guenter:bluemap-ars-nouveau-addon:0.1.0-alpha.3",
-  "published": false,
+  "owner_accepted_staging": {
+    "accepted_at": "2026-08-31",
+    "commit": "37e296e559af99f2d914ea7e930864cef8f9e5f6",
+    "tree": "f4814bee07e721a4323296c5cf41110ec99bddf7",
+    "production_jar_size": 169426,
+    "production_jar_sha256": "9c65afac336c9824bc4ba34f102e3bdeac1e354c127a2099c27845256092200a",
+    "accepted_at_map": "atmons_integration",
+    "visual_acceptance": true
+  },
   "inherited_visual_acceptance": {
     "baseline_version": "0.1.0-alpha.2",
     "baseline_release_commit": "3df77763803ef7c2cd228449bdfe2870d52e8fe1",
@@ -18,7 +26,12 @@
     "original_visual_acceptance": true,
     "scope": "The exact profile, eleven routed hosts, ten Installed-GEO contracts, 12-case gallery, installed-resource use, renderer behavior, and stock fallback are unchanged. Alpha.3 moves only the BlueMap adapter boundary and shared bootstrap helpers to their 5.23-only packages."
   },
-  "candidate_artifacts": {
+  "accepted_staging_entries": {
+    "path": "provenance/accepted-staging-entries.sha256",
+    "entry_count": 47,
+    "sha256": "2e4cd16173757762c333105ddca483dcbf9b6f9ae23f35ab60662c571c5cf02b"
+  },
+  "final_release_artifacts": {
     "production_jar": {
       "file_name": "bluemap-ars-nouveau-addon-0.1.0-alpha.3.jar",
       "size": 169426,
@@ -39,6 +52,13 @@
       "size": 2847,
       "sha256": "4bf37976d41d7d963a8b85b94e6f242a2c2b52345824e0d8b3649216c9eeb98b"
     }
+  },
+  "staged_equivalence": {
+    "entry_manifest": "provenance/accepted-staging-entries.sha256",
+    "identical_non_manifest_entries": 47,
+    "whole_jar_byte_identical": true,
+    "only_changed_entry_bytes": "none",
+    "change_reason": "The release JAR is byte-identical to the owner-accepted BlueMap 5.23 integration candidate."
   },
   "exact_feature_backport_migration": {
     "bluemap_version": "5.22-feature.backport-5.23-stateless-java-web-server-46",
@@ -85,6 +105,10 @@
     "consumer_tests_passed": 17
   },
   "verification": {
+    "production_jar_exact_byte_gate": true,
+    "sources_jar_exact_byte_gate": true,
+    "publication_metadata_exact_byte_gate": true,
+    "staged_equivalence_gate": true,
     "exact_input_gate": true,
     "production_archive_boundary_gate": true,
     "sources_archive_boundary_gate": true,

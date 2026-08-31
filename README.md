@@ -4,9 +4,8 @@ A Java 21 BlueMap 5.23 feature-backport add-on for the exact
 `ars-nouveau-5.13.0-mc1.21.1` profile in All the Mons `1.2.0` / Minecraft
 `1.21.1`.
 
-Status: unpublished `0.1.0-alpha.3` migration candidate. The owner accepted
-and released the same renderer in `0.1.0-alpha.2`. This candidate targets only
-BlueMap feature-backport commit
+Version `0.1.0-alpha.3` carries the owner-accepted renderer to BlueMap's 5.23
+feature backport. It targets only feature-backport commit
 `7e07f4e74ec1e92a6ead9aa1e66054af3e133aac` and API commit
 `285c9a60eff3ac2b0cab308ce1058d1565be0971`. Eleven block-entity-rendered
 hosts still use deterministic static meshes compiled from ten
